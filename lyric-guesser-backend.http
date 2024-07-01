@@ -1,0 +1,6 @@
+@lyric_guesser_backend_HostAddress = http://localhost:5170
+
+GET {{lyric_guesser_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

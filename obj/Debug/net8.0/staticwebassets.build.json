@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "i2deJFzAiuTPQrd30mheRmuMlTm2navWwpu13nDMmiw=",
+  "Source": "lyric-guesser-backend",
+  "BasePath": "_content/lyric-guesser-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
