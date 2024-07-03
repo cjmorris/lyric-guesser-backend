@@ -25,32 +25,36 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/lyrics", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    string[] lyrics =  ["Buddy","you're","a","boy","make","a","big","noise",
+        "Playing","in","the","street","gonna","be","a","big","man","someday",
+        "You","got","mud","on","your","face","you","big","disgrace",
+        "Kicking","your","can","all","over","the","place","singin'",
+        "We","will","we","will","rock","you",
+        "We","will","we","will","rock","you",
+        "Buddy","you're","a","young","man","hard","man",
+        "Shouting","in","the","street","gonna","take","on","the","world","someday",
+        "You","got","blood","on","your","face","you","big","disgrace",
+        "Waving","your","banner","all","over","the","place",
+        "We","will","we","will","rock","you","sing","it",
+        "We","will","we","will","rock","you",
+        "Buddy","you're","an","old","man","poor","man",
+        "Pleading","with","your","eyes","gonna","make","you","some","peace","someday",
+        "You","got","mud","on","your","face","big","disgrace",
+        "Somebody","better","put","you","back","into","your","place",
+        "We","will","we","will","rock","you","sing","it",
+        "We","will","we","will","rock","you","everybody",
+        "We","will","we","will","rock","you","hmm",
+        "We","will","we","will","rock","you",
+        "Alright"];
+    return lyrics;
 })
-.WithName("GetWeatherForecast")
+.WithName("Lyrics")
 .WithOpenApi();
 
 //Enabling CORS
 app.UseCors("FrontEnd");
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
