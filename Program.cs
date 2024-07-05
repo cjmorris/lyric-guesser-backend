@@ -36,8 +36,10 @@ app.MapGet("/lyrics", async () =>
 
     var okResult = lyrics as OkObjectResult;
 
-    if (okResult != null && okResult.StatusCode == 200){
-        return okResult.Value;
+    if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
+        Parser parser = new();
+        var result = parser.ParseLyrics(okResult.Value.ToString());
+        return result;
     }
 
     return null;
