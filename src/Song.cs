@@ -1,0 +1,1 @@
+public record Song(string SongName, string Artist, List<string> Lyrics);

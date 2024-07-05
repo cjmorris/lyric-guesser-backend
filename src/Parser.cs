@@ -4,11 +4,11 @@ using System.Text.RegularExpressions;
 public class Parser(){
 
 
-    public List<string> ParseLyrics(string rawhtml){
-        HtmlDocument htmlSnippet = new HtmlDocument();
+    public List<string> ParseLyrics(string ?rawhtml){
+        HtmlDocument htmlSnippet = new();
         htmlSnippet.LoadHtml(rawhtml);
 
-        List<string> lyrics = new List<string>();
+        List<string> lyrics = [];
 
         HtmlNode? lyricsNode = null;
         foreach (HtmlNode child in htmlSnippet.DocumentNode.Descendants()){

@@ -39,8 +39,10 @@ app.MapGet("/lyrics", async () =>
     if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
         Parser parser = new();
         var result = parser.ParseLyrics(okResult.Value.ToString());
-        return result;
+        Song song = new Song("We Will Rock You","Queen",result);
+        return song;
     }
+    
 
     return null;
 })
