@@ -11,7 +11,7 @@ public class DataController : ControllerBase{
 
     [HttpGet]
     public async Task<IActionResult> GetLyrics(){
-        var apiUrl = "https://www.azlyrics.com/lyrics/queen/wewillrockyou.html";
+        var apiUrl = "https://genius.com/Queen-we-will-rock-you-lyrics";
 
         HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 

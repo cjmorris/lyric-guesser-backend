@@ -10,20 +10,15 @@ public class Parser(){
 
         List<string> lyrics = [];
 
-        HtmlNode? lyricsNode = null;
-        foreach (HtmlNode child in htmlSnippet.DocumentNode.Descendants()){
-            if(child.InnerHtml.Contains("any third-party lyrics provider")){
-                lyricsNode = child;
-            }
-        }
-
-        if(lyricsNode != null){
-            foreach (HtmlNode child in lyricsNode.ParentNode.ChildNodes){
-                if(!(child.InnerHtml.Contains("<") || child.InnerHtml.Contains("(") || child.InnerHtml.Contains(")"))){
-                    foreach (string word in child.InnerHtml.Split(' ', '-')){
-                        string cleanedWord = word.Trim();
+        HtmlNodeCollection lyricNodes = htmlSnippet.DocumentNode.SelectNodes("//div[@data-lyrics-container='true']");
+        if(lyricNodes != null){
+            foreach (HtmlNode node in lyricNodes.Descendants()){        
+                if(node.NodeType == HtmlNodeType.Text && !node.InnerText.Contains('[')){
+                    foreach (string word in node.InnerText.Split(' ', '-')){
+                        string decodedWord = System.Net.WebUtility.HtmlDecode(word).Trim();
+                        string cleanedWord = Regex.Replace(decodedWord, "[^a-zA-Z0-9]+", "");
                         if(cleanedWord != ""){
-                            lyrics.Add(Regex.Replace(cleanedWord, "[^a-zA-Z0-9]+", ""));
+                            lyrics.Add(cleanedWord);
                         }
                     }
                 }         
