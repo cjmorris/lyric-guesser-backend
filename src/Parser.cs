@@ -14,11 +14,18 @@ public class Parser(){
         if(lyricNodes != null){
             foreach (HtmlNode node in lyricNodes.Descendants()){        
                 if(node.NodeType == HtmlNodeType.Text && !node.InnerText.Contains('[')){
+                    bool inQuotes = false;
                     foreach (string word in node.InnerText.Split(' ', '-')){
-                        string decodedWord = System.Net.WebUtility.HtmlDecode(word).Trim();
-                        string cleanedWord = Regex.Replace(decodedWord, "[^a-zA-Z0-9]+", "");
-                        if(cleanedWord != ""){
-                            lyrics.Add(cleanedWord);
+                        if(word.Contains('(')){
+                            inQuotes = true;
+                        }else if (inQuotes && word.Contains(')')){
+                            inQuotes = false;
+                        }else if (!inQuotes){
+                            string decodedWord = System.Net.WebUtility.HtmlDecode(word).Trim();
+                            string cleanedWord = Regex.Replace(decodedWord, "[^a-zA-Z0-9]+", "");
+                            if(cleanedWord != ""){
+                                lyrics.Add(cleanedWord);
+                            }
                         }
                     }
                 }         
