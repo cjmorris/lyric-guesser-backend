@@ -32,7 +32,10 @@ app.MapGet("/lyrics", async () =>
 {
     DataController httpClient = new();
 
-    var lyrics = await httpClient.GetLyrics();
+    SongSelector selector = new();
+    string randomSongUrl = selector.SelectRandomSong();
+
+    var lyrics = await httpClient.GetLyrics(randomSongUrl);
 
     var okResult = lyrics as OkObjectResult;
 

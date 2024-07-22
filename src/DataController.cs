@@ -10,9 +10,8 @@ public class DataController : ControllerBase{
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetLyrics(){
-        var apiUrl = "https://genius.com/Queen-we-will-rock-you-lyrics";
-
+    public async Task<IActionResult> GetLyrics(string apiUrl)
+    {
         HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
         if (response.IsSuccessStatusCode){
