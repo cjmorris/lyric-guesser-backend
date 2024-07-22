@@ -14,7 +14,6 @@ public class Parser(){
         if(lyricNodes != null){
             var italicNodes = lyricNodes.Descendants("i").ToList();
             foreach (var node in italicNodes){
-                System.Console.WriteLine(node.InnerHtml);
                 node.Remove();
             }
             foreach (HtmlNode node in lyricNodes.Descendants()){        
