@@ -13,7 +13,7 @@ public class Parser(){
         HtmlNodeCollection lyricNodes = htmlSnippet.DocumentNode.SelectNodes("//div[@data-lyrics-container='true']");
         if(lyricNodes != null){
             foreach (HtmlNode node in lyricNodes.Descendants()){        
-                if(node.NodeType == HtmlNodeType.Text && !node.InnerText.Contains('[')){
+                if(node.NodeType == HtmlNodeType.Text && !node.InnerText.Contains('[') && !node.InnerText.Contains(']')){
                     bool inQuotes = false;
                     foreach (string word in node.InnerText.Split(' ', '-')){
                         if(word.Contains('(')){
