@@ -26,7 +26,6 @@ https://genius.com/Ajr-bang-lyrics
 https://genius.com/Ajr-burn-the-house-down-lyrics
 https://genius.com/Ajr-worlds-smallest-violin-lyrics
 https://genius.com/Alan-walker-faded-lyrics
-https://genius.com/Aqua-barbie-girl-lyrics
 https://genius.com/Arctic-monkeys-do-i-wanna-know-lyrics
 https://genius.com/Aretha-franklin-respect-lyrics
 https://genius.com/Ariana-grande-7-rings-lyrics
@@ -81,6 +80,7 @@ https://genius.com/Carolina-gaitan-mauro-castillo-adassa-rhenzy-feliz-diane-guer
 https://genius.com/Celine-dion-my-heart-will-go-on-love-theme-from-titanic-lyrics
 https://genius.com/Charlie-puth-attention-lyrics
 https://genius.com/Charlie-puth-we-dont-talk-anymore-lyrics
+https://genius.com/Christina-perri-a-thousand-years-lyrics
 https://genius.com/Clean-bandit-rockabye-lyrics
 https://genius.com/Coldplay-a-sky-full-of-stars-lyrics
 https://genius.com/Coldplay-fix-you-lyrics
@@ -93,7 +93,10 @@ https://genius.com/Cyndi-lauper-girls-just-want-to-have-fun-lyrics
 https://genius.com/Cyndi-lauper-time-after-time-lyrics
 https://genius.com/Daft-punk-get-lucky-lyrics
 https://genius.com/Daniel-powter-bad-day-lyrics
+https://genius.com/David-bowie-space-oddity-lyrics
+https://genius.com/David-bowie-starman-lyrics
 https://genius.com/David-guetta-titanium-lyrics
+https://genius.com/Demi-lovato-sorry-not-sorry-lyrics
 https://genius.com/Dexys-come-on-eileen-lyrics
 https://genius.com/Dj-jazzy-jeff-and-the-fresh-prince-the-fresh-prince-of-bel-air-lyrics
 https://genius.com/Dj-snake-let-me-love-you-lyrics
@@ -162,6 +165,7 @@ https://genius.com/Harry-styles-as-it-was-lyrics
 https://genius.com/Harry-styles-falling-lyrics
 https://genius.com/Harry-styles-sign-of-the-times-lyrics
 https://genius.com/Harry-styles-watermelon-sugar-lyrics
+https://genius.com/High-school-musical-cast-were-all-in-this-together-lyrics
 https://genius.com/Hozier-take-me-to-church-lyrics
 https://genius.com/Idina-menzel-let-it-go-lyrics
 https://genius.com/Iggy-azalea-fancy-lyrics
@@ -172,7 +176,6 @@ https://genius.com/Imagine-dragons-thunder-lyrics
 https://genius.com/Imagine-dragons-whatever-it-takes-lyrics
 https://genius.com/Israel-kamakawiwoole-somewhere-over-the-rainbow-lyrics
 https://genius.com/James-arthur-say-you-wont-let-go-lyrics
-https://genius.com/James-blunt-goodbye-my-lover-lyrics
 https://genius.com/James-blunt-youre-beautiful-lyrics
 https://genius.com/Jason-mraz-im-yours-lyrics
 https://genius.com/Jennifer-lopez-on-the-floor-lyrics
@@ -215,7 +218,6 @@ https://genius.com/Lil-dicky-freaky-friday-lyrics
 https://genius.com/Lil-nas-x-old-town-road-remix-lyrics
 https://genius.com/Linkin-park-in-the-end-lyrics
 https://genius.com/Linkin-park-numb-lyrics
-https://genius.com/Little-mix-black-magic-lyrics
 https://genius.com/Lorde-royals-lyrics
 https://genius.com/Louis-armstrong-what-a-wonderful-world-lyrics
 https://genius.com/Lukas-graham-7-years-lyrics
@@ -242,6 +244,7 @@ https://genius.com/Michael-jackson-beat-it-lyrics
 https://genius.com/Michael-jackson-billie-jean-lyrics
 https://genius.com/Michael-jackson-smooth-criminal-lyrics
 https://genius.com/Michael-jackson-thriller-lyrics
+https://genius.com/Mika-grace-kelly-lyrics
 https://genius.com/Mike-posner-cooler-than-me-lyrics
 https://genius.com/Mike-posner-i-took-a-pill-in-ibiza-lyrics
 https://genius.com/Miley-cyrus-flowers-lyrics
@@ -249,6 +252,7 @@ https://genius.com/Miley-cyrus-party-in-the-usa-lyrics
 https://genius.com/Miley-cyrus-we-cant-stop-lyrics
 https://genius.com/Miley-cyrus-wrecking-ball-lyrics
 https://genius.com/Neil-diamond-sweet-caroline-lyrics
+https://genius.com/Nickelback-how-you-remind-me-lyrics
 https://genius.com/Nirvana-smells-like-teen-spirit-lyrics
 https://genius.com/Oasis-wonderwall-lyrics
 https://genius.com/Olivia-rodrigo-drivers-license-lyrics
@@ -330,6 +334,7 @@ https://genius.com/Survivor-eye-of-the-tiger-lyrics
 https://genius.com/Swedish-house-mafia-dont-you-worry-child-lyrics
 https://genius.com/Taylor-swift-bad-blood-lyrics
 https://genius.com/Taylor-swift-blank-space-lyrics
+https://genius.com/Taylor-swift-cruel-summer-lyrics
 https://genius.com/Taylor-swift-love-story-lyrics
 https://genius.com/Taylor-swift-shake-it-off-lyrics
 https://genius.com/Taylor-swift-we-are-never-ever-getting-back-together-lyrics
