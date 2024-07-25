@@ -35,7 +35,7 @@ app.MapGet("/lyrics", async () =>
     SongSelector selector = new();
     string randomSongUrl = selector.SelectRandomSong();
 
-    var lyrics = await httpClient.GetLyrics("https://genius.com/Ac-dc-back-in-black-lyrics");
+    var lyrics = await httpClient.GetLyrics(randomSongUrl);
 
     var okResult = lyrics as OkObjectResult;
 
