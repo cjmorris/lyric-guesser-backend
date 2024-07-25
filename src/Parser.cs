@@ -35,5 +35,36 @@ public class Parser(){
         return lyrics;
     }
 
+    public string ParseSong(string ?rawhtml){
+        HtmlDocument htmlSnippet = new();
+        htmlSnippet.LoadHtml(rawhtml);
+
+        HtmlNode songNode = htmlSnippet.DocumentNode.SelectSingleNode("//h1[starts-with(@class, 'SongHeaderdesktop__Title')]");
+        if(songNode != null){
+            foreach (HtmlNode node in songNode.Descendants()){ 
+                if(node.NodeType == HtmlNodeType.Text){
+                    return node.InnerText;
+                }         
+            }
+        }
+
+        return "Unknown";
+    }
+
+    public string ParseArtist(string ?rawhtml){
+        HtmlDocument htmlSnippet = new();
+        htmlSnippet.LoadHtml(rawhtml);
+
+        HtmlNode artistNode = htmlSnippet.DocumentNode.SelectSingleNode("//div[starts-with(@class, 'HeaderArtistAndTracklistdesktop__ListArtists')]");
+        if(artistNode != null){
+            foreach (HtmlNode node in artistNode.Descendants()){ 
+                if(node.NodeType == HtmlNodeType.Text){
+                    return node.InnerText;
+                }         
+            }
+        }
+
+        return "Unknown";
+    }
 
 }

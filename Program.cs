@@ -35,14 +35,16 @@ app.MapGet("/lyrics", async () =>
     SongSelector selector = new();
     string randomSongUrl = selector.SelectRandomSong();
 
-    var lyrics = await httpClient.GetLyrics(randomSongUrl);
+    var lyrics = await httpClient.GetLyrics("https://genius.com/Ac-dc-back-in-black-lyrics");
 
     var okResult = lyrics as OkObjectResult;
 
     if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
         Parser parser = new();
         var result = parser.ParseLyrics(okResult.Value.ToString());
-        Song song = new Song("We Will Rock You","Queen",result);
+        var songName = parser.ParseSong(okResult.Value.ToString());
+        var artist = parser.ParseArtist(okResult.Value.ToString());
+        Song song = new Song(songName,artist,result);
         return song;
     }
     
