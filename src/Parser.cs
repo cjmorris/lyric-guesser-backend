@@ -12,9 +12,9 @@ public class Parser(){
 
         HtmlNodeCollection lyricNodes = htmlSnippet.DocumentNode.SelectNodes("//div[@data-lyrics-container='true']");
         if(lyricNodes != null){
+            bool inQuotes = false;
             foreach (HtmlNode node in lyricNodes.Descendants()){        
                 if(node.NodeType == HtmlNodeType.Text){
-                    bool inQuotes = false;
                     foreach (string word in node.InnerText.Split(' ', '-')){
                         if(word.Contains('[')){
                             inQuotes = true;
