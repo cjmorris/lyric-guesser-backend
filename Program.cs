@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,10 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+string configFile = "config.json";
+string json = File.ReadAllText(configFile);
+Config config = JsonSerializer.Deserialize<Config>(json)!;
+
 // Added CORS
 builder.Services.AddCors(options => {
     options.AddPolicy("FrontEnd", policyBuilder => {
-        policyBuilder.WithOrigins("http://localhost:5173");
+        policyBuilder.WithOrigins(config.website_url);
         policyBuilder.AllowAnyHeader();
         policyBuilder.AllowAnyMethod();
     });
@@ -28,7 +35,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/lyrics", async () =>
+app.MapGet("/getRandomSong", async () =>
 {
     DataController httpClient = new();
 

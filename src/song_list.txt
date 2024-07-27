@@ -27,6 +27,7 @@ https://genius.com/Arctic-monkeys-do-i-wanna-know-lyrics
 https://genius.com/Aretha-franklin-respect-lyrics
 https://genius.com/Ariana-grande-7-rings-lyrics
 https://genius.com/Ariana-grande-dangerous-woman-lyrics
+https://genius.com/Ariana-grande-pov-lyrics
 https://genius.com/Ariana-grande-problem-lyrics
 https://genius.com/Ariana-grande-thank-u-next-lyrics
 https://genius.com/Aulii-cravalho-how-far-ill-go-lyrics
@@ -40,7 +41,6 @@ https://genius.com/Bebe-rexha-im-a-mess-lyrics
 https://genius.com/Bee-gees-stayin-alive-lyrics
 https://genius.com/Beyonce-crazy-in-love-lyrics
 https://genius.com/Beyonce-halo-lyrics
-https://genius.com/Beyonce-partition-lyrics
 https://genius.com/Beyonce-single-ladies-put-a-ring-on-it-lyrics
 https://genius.com/Billie-eilish-bad-guy-lyrics
 https://genius.com/Billy-joel-piano-man-lyrics
@@ -75,6 +75,7 @@ https://genius.com/Camila-cabello-never-be-the-same-lyrics
 https://genius.com/Carl-douglas-kung-fu-fighting-lyrics
 https://genius.com/Carly-rae-jepsen-call-me-maybe-lyrics
 https://genius.com/Carolina-gaitan-mauro-castillo-adassa-rhenzy-feliz-diane-guerrero-and-stephanie-beatriz-we-dont-talk-about-bruno-lyrics
+https://genius.com/Carrie-underwood-before-he-cheats-lyrics
 https://genius.com/Celine-dion-my-heart-will-go-on-love-theme-from-titanic-lyrics
 https://genius.com/Charlie-puth-attention-lyrics
 https://genius.com/Charlie-puth-we-dont-talk-anymore-lyrics
@@ -250,6 +251,8 @@ https://genius.com/Miley-cyrus-flowers-lyrics
 https://genius.com/Miley-cyrus-party-in-the-usa-lyrics
 https://genius.com/Miley-cyrus-we-cant-stop-lyrics
 https://genius.com/Miley-cyrus-wrecking-ball-lyrics
+https://genius.com/My-chemical-romance-teenagers-lyrics
+https://genius.com/My-chemical-romance-welcome-to-the-black-parade-lyrics
 https://genius.com/Neil-diamond-sweet-caroline-lyrics
 https://genius.com/Nickelback-how-you-remind-me-lyrics
 https://genius.com/Nirvana-smells-like-teen-spirit-lyrics
@@ -277,6 +280,7 @@ https://genius.com/Pink-floyd-another-brick-in-the-wall-pt-2-lyrics
 https://genius.com/Pitbull-feel-this-moment-lyrics
 https://genius.com/Pitbull-timber-lyrics
 https://genius.com/Plain-white-ts-hey-there-delilah-lyrics
+https://genius.com/Pokemon-pokemon-theme-gotta-catch-em-all-lyrics
 https://genius.com/Post-malone-better-now-lyrics
 https://genius.com/Post-malone-circles-lyrics
 https://genius.com/Post-malone-psycho-lyrics
@@ -333,6 +337,7 @@ https://genius.com/Snow-patrol-chasing-cars-lyrics
 https://genius.com/Spice-girls-wannabe-tell-me-what-you-want-lyrics
 https://genius.com/Survivor-eye-of-the-tiger-lyrics
 https://genius.com/Swedish-house-mafia-dont-you-worry-child-lyrics
+https://genius.com/Taio-cruz-dynamite-lyrics
 https://genius.com/Taylor-swift-bad-blood-lyrics
 https://genius.com/Taylor-swift-blank-space-lyrics
 https://genius.com/Taylor-swift-cruel-summer-lyrics
