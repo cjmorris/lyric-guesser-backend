@@ -1,67 +1,27 @@
-using Microsoft.AspNetCore.Mvc;
+
 using System.Text.Json;
-
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
+using Microsoft.AspNetCore.Mvc;
 
 string configFile = "config.json";
 string json = File.ReadAllText(configFile);
 Config config = JsonSerializer.Deserialize<Config>(json)!;
 
-// Added CORS
-builder.Services.AddCors(options => {
-    options.AddPolicy("FrontEnd", policyBuilder => {
-        policyBuilder.WithOrigins(config.website_url);
-        policyBuilder.AllowAnyHeader();
-        policyBuilder.AllowAnyMethod();
-    });
-});
+DataController httpClient = new();
 
-var app = builder.Build();
+SongSelector selector = new();
+string randomSongUrl = selector.SelectRandomSong();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+var lyrics = await httpClient.GetLyrics(randomSongUrl);
+
+var okResult = lyrics as OkObjectResult;
+
+if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
+    Parser parser = new();
+    Song song = new Song();
+    song.Lyrics = [.. parser.ParseLyrics(okResult.Value.ToString())];
+    song.Name = parser.ParseSong(okResult.Value.ToString());
+    song.Artist = parser.ParseArtist(okResult.Value.ToString());
+    Console.WriteLine(song.Artist);
+    Console.WriteLine(song.Name);
 }
 
-app.UseHttpsRedirection();
-
-
-app.MapGet("/getRandomSong", async () =>
-{
-    DataController httpClient = new();
-
-    SongSelector selector = new();
-    string randomSongUrl = selector.SelectRandomSong();
-
-    var lyrics = await httpClient.GetLyrics(randomSongUrl);
-
-    var okResult = lyrics as OkObjectResult;
-
-    if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
-        Parser parser = new();
-        var result = parser.ParseLyrics(okResult.Value.ToString());
-        var songName = parser.ParseSong(okResult.Value.ToString());
-        var artist = parser.ParseArtist(okResult.Value.ToString());
-        Song song = new Song(songName,artist,result);
-        return song;
-    }
-    
-
-    return null;
-})
-.WithName("Lyrics")
-.WithOpenApi();
-
-//Enabling CORS
-app.UseCors("FrontEnd");
-
-app.Run();
