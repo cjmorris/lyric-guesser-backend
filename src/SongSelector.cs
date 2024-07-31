@@ -13,5 +13,8 @@ public class SongSelector(){
     return "";
   }
 
+  public string[] GetAllSongs(){
+    return songList;
+  }
 
 }

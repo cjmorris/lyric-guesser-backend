@@ -9,32 +9,32 @@ Config config = JsonSerializer.Deserialize<Config>(json)!;
 
 DataController httpClient = new();
 
+//Setup DynamoDB
+AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
+clientConfig.RegionEndpoint = RegionEndpoint.APSoutheast2;
+AmazonDynamoDBClient client = new AmazonDynamoDBClient(clientConfig); 
+
 SongSelector selector = new();
-string randomSongUrl = selector.SelectRandomSong();
+string[] allSongs = selector.GetAllSongs();
 
-var lyrics = await httpClient.GetLyrics(randomSongUrl);
-
-var okResult = lyrics as OkObjectResult;
-
-if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
-    Parser parser = new();
-    Song song = new();
-    song.Lyrics = [.. parser.ParseLyrics(okResult.Value.ToString())];
-    song.Name = parser.ParseSong(okResult.Value.ToString());
-    song.Artist = parser.ParseArtist(okResult.Value.ToString());
-    song.id = "bdjhasbyukhabsjaskhj";
-    // AmazonDynamoDBClient client = new(RegionEndpoint.APSoutheast2);
-    // DbSettings settings = new();
-    // DynamoDb db = new(client,settings);
-    // var success = await db.Add(song);
-
-    AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
-    // This client will access the US East 1 region.
-    clientConfig.RegionEndpoint = RegionEndpoint.APSoutheast2;
-    AmazonDynamoDBClient client = new AmazonDynamoDBClient(clientConfig); 
-
-    var result =  await Test.PutSong(client,song,"lyricguesser-songs");
-    Console.WriteLine(result);
+foreach (var song in allSongs){
+    Console.WriteLine(song);
+    var task = AddSong(song);
+    task.Wait();
 }
 
+async Task AddSong(string url){
+    var lyrics = await httpClient.GetLyrics(url);
 
+    var okResult = lyrics as OkObjectResult;
+    
+    if (okResult != null && okResult.StatusCode == 200 && okResult.Value != null){
+        Parser parser = new();
+        Song song = new();
+        song.Lyrics = [.. parser.ParseLyrics(okResult.Value.ToString())];
+        song.Name = parser.ParseSong(okResult.Value.ToString());
+        song.Artist = parser.ParseArtist(okResult.Value.ToString());
+        song.id = Guid.NewGuid().ToString();
+        var result = await DynamoDb.PutSong(client,song,"lyricguesser-songs");
+    }
+}
