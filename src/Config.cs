@@ -1,3 +1,3 @@
 public class Config{
-  public string website_url  { get; set; }
+  public required string website_url  { get; set; }
 }
