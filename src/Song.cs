@@ -10,5 +10,7 @@ public class Song{
   public string? Artist { get; set;}
     [DynamoDBProperty("lyrics")]
   public string[]? Lyrics { get; set;}
+  [DynamoDBProperty("url")]
+  public string? Url { get; set;}
 
 }

@@ -34,6 +34,7 @@ async Task AddSong(string url){
         song.Lyrics = [.. parser.ParseLyrics(okResult.Value.ToString())];
         song.Name = parser.ParseSong(okResult.Value.ToString());
         song.Artist = parser.ParseArtist(okResult.Value.ToString());
+        song.Url = url;
         song.id = Guid.NewGuid().ToString();
         var result = await DynamoDb.PutSong(client,song,"lyricguesser-songs");
     }
