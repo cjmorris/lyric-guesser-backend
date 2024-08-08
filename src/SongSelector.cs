@@ -2,18 +2,18 @@ using HtmlAgilityPack;
 
 public class SongSelector(){
 
-  private string[] songList = File.ReadAllLines("./src/song_list.txt");
+  private List<string> songList = File.ReadAllLines("./src/song_list.txt").ToList();
   
   public string SelectRandomSong(){
-    if(songList.Length != 0){
+    if(songList.Count != 0){
       Random r = new Random();
-      int rInt = r.Next(0, songList.Length);
+      int rInt = r.Next(0, songList.Count);
       return songList[rInt];
     }
     return "";
   }
 
-  public string[] GetAllSongs(){
+  public List<string> GetAllSongs(){
     return songList;
   }
 

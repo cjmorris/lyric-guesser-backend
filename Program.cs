@@ -14,14 +14,24 @@ AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
 clientConfig.RegionEndpoint = RegionEndpoint.APSoutheast2;
 AmazonDynamoDBClient client = new AmazonDynamoDBClient(clientConfig); 
 
-SongSelector selector = new();
-string[] allSongs = selector.GetAllSongs();
+List<string> existingSongs = await DynamoDb.GetAllSongs(client,"lyricguesser-songs");
 
-foreach (var song in allSongs){
-    Console.WriteLine(song);
-    var task = AddSong(song);
-    task.Wait();
+SongSelector selector = new();
+List<string> allSongs = selector.GetAllSongs();
+
+var songsToAdd = allSongs.Except(existingSongs);
+
+if(songsToAdd.Count() != 0){
+    foreach (var song in songsToAdd){
+        var task = AddSong(song);
+        task.Wait();
+        Console.WriteLine($"Added {song}");
+    }
+}else{
+    Console.WriteLine("No new songs to add");
 }
+
+
 
 async Task AddSong(string url){
     var lyrics = await httpClient.GetLyrics(url);

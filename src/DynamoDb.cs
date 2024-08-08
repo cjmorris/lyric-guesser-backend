@@ -18,4 +18,22 @@ public class DynamoDb {
         var response = await client.PutItemAsync(putRequest);
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
+
+    public static async Task<List<string>> GetAllSongs(AmazonDynamoDBClient client, string tableName){
+        var request = new ScanRequest{
+            TableName = tableName,
+        };
+        
+        var response = await client.ScanAsync(request);
+
+        List<string> existingSongs = [];
+        foreach(var item in response.Items){
+            if(item.TryGetValue("Url", out AttributeValue? value))
+            {
+                existingSongs.Add(value.S);
+            }
+        }
+        
+        return existingSongs;
+    }
 }
