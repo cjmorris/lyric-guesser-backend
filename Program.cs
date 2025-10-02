@@ -21,9 +21,11 @@ List<string> allSongs = selector.GetAllSongs();
 
 var songsToAdd = allSongs.Except(existingSongs);
 
+var index = 0;
 if(songsToAdd.Count() != 0){
     foreach (var song in songsToAdd){
-        var task = AddSong(song);
+        var task = AddSong(song, index);
+        index++;
         task.Wait();
         Console.WriteLine($"Added {song}");
     }
@@ -33,7 +35,7 @@ if(songsToAdd.Count() != 0){
 
 
 
-async Task AddSong(string url){
+async Task AddSong(string url, int index){
     var lyrics = await httpClient.GetLyrics(url);
 
     var okResult = lyrics as OkObjectResult;
@@ -45,7 +47,7 @@ async Task AddSong(string url){
         song.Name = parser.ParseSong(okResult.Value.ToString());
         song.Artist = parser.ParseArtist(okResult.Value.ToString());
         song.Url = url;
-        song.id = Guid.NewGuid().ToString();
+        song.id = index;
         var result = await DynamoDb.PutSong(client,song,"lyricguesser-songs");
     }
 }

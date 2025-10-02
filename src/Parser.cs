@@ -15,7 +15,7 @@ public class Parser(){
             bool inQuotes = false;
             foreach (HtmlNode node in lyricNodes.Descendants()){  
                 if(node.NodeType == HtmlNodeType.Text){
-                    foreach (string word in node.InnerText.Split(' ', '-')){
+                    foreach (string word in node.InnerText.Split(' ', '-', '—')){
                         if(word.Contains('[')){
                             if(!word.Contains(']')){
                                 inQuotes = true;

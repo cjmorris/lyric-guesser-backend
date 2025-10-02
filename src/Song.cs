@@ -3,7 +3,7 @@ using Amazon.DynamoDBv2.DataModel;
 [DynamoDBTable("lyricguesser-songs")]
 public class Song{
   [DynamoDBHashKey("Id")]
-  public string? id { get; set;}
+  public int? id { get; set;}
   [DynamoDBProperty("name")]
   public string? Name { get; set;}
     [DynamoDBProperty("artist")]
