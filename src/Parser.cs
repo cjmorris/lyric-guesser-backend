@@ -12,6 +12,7 @@ public class Parser(){
 
         HtmlNodeCollection lyricNodes = htmlSnippet.DocumentNode.SelectNodes("//div[@data-lyrics-container='true']");
         if(lyricNodes != null){
+            htmlSnippet.DocumentNode.SelectSingleNode("//div[@data-exclude-from-selection='true']")?.Remove();
             bool inQuotes = false;
             foreach (HtmlNode node in lyricNodes.Descendants()){  
                 if(node.NodeType == HtmlNodeType.Text){
@@ -41,7 +42,7 @@ public class Parser(){
         HtmlDocument htmlSnippet = new();
         htmlSnippet.LoadHtml(rawhtml);
 
-        HtmlNode songNode = htmlSnippet.DocumentNode.SelectSingleNode("//h1[starts-with(@class, 'SongHeaderdesktop__Title')]");
+        HtmlNode songNode = htmlSnippet.DocumentNode.SelectSingleNode("//h1[starts-with(@class, 'SongHeader-desktop__Title')]");
         if(songNode != null){
             foreach (HtmlNode node in songNode.Descendants()){ 
                 if(node.NodeType == HtmlNodeType.Text){
@@ -57,7 +58,7 @@ public class Parser(){
         HtmlDocument htmlSnippet = new();
         htmlSnippet.LoadHtml(rawhtml);
 
-        HtmlNode artistNode = htmlSnippet.DocumentNode.SelectSingleNode("//div[starts-with(@class, 'HeaderArtistAndTracklistdesktop__ListArtists')]");
+        HtmlNode artistNode = htmlSnippet.DocumentNode.SelectSingleNode("//div[starts-with(@class, 'SongHeader-desktop__CreditList')]");
         if(artistNode != null){
             foreach (HtmlNode node in artistNode.Descendants()){ 
                 if(node.NodeType == HtmlNodeType.Text){

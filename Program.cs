@@ -21,7 +21,7 @@ List<string> allSongs = selector.GetAllSongs();
 
 var songsToAdd = allSongs.Except(existingSongs);
 
-var index = 0;
+var index = existingSongs.Count;
 if(songsToAdd.Count() != 0){
     foreach (var song in songsToAdd){
         var task = AddSong(song, index);
