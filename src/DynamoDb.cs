@@ -19,18 +19,23 @@ public class DynamoDb {
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
 
-    public static async Task<List<string>> GetAllSongs(AmazonDynamoDBClient client, string tableName){
+    public static async Task<List<Song>> GetAllSongs(AmazonDynamoDBClient client, string tableName){
         var request = new ScanRequest{
             TableName = tableName,
         };
         
         var response = await client.ScanAsync(request);
 
-        List<string> existingSongs = [];
+        List<Song> existingSongs = [];
         foreach(var item in response.Items){
-            if(item.TryGetValue("Url", out AttributeValue? value))
-            {
-                existingSongs.Add(value.S);
+            if(item.TryGetValue("Url", out AttributeValue? url) && item.TryGetValue("Name", out AttributeValue? name) && item.TryGetValue("Artist", out AttributeValue? artist)){
+                Song song = new Song
+                {
+                    Name = name.S,
+                    Artist = artist.S,
+                    Url = url.S
+                };
+                existingSongs.Add(song);
             }
         }
         
